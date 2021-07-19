@@ -1,12 +1,18 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {Text, View} from 'react-native';
 import {Navigation} from './src/navigation/Navigation';
+import {GradientProvider} from './context/GradientContext';
+
+const AppState = ({children}: any) => {
+  return <GradientProvider>{children}</GradientProvider>;
+};
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Navigation />
+      <AppState>
+        <Navigation />
+      </AppState>
     </NavigationContainer>
   );
 };

@@ -1,6 +1,5 @@
 import {useEffect} from 'react';
 import {useState} from 'react';
-import {floor} from 'react-native-reanimated';
 import moviesDB from '../api/movieDB';
 import {MovieDBMmoviesResponse, Movie} from '../interfaces/movieInterface';
 
@@ -11,7 +10,12 @@ interface MoviesState {
   upcoming: Movie[];
 }
 export const useMovies = () => {
-  const [moviesState, setMoviesState] = useState<MoviesState>();
+  const [moviesState, setMoviesState] = useState<MoviesState>({
+    nowPlaying: [],
+    popular: [],
+    topRated: [],
+    upcoming: [],
+  });
 
   const [isLoading, setIsLoading] = useState(true);
 
